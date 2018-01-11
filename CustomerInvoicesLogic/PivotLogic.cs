@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomerInvoicesServices.Resuelve
+namespace CustomerInvoicesLogic
 {
-    public class ResuelveServices
+    class PivotLogic
     {
     }
 }

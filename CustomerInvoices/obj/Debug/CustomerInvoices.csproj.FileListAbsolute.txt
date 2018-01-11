@@ -8,3 +8,12 @@ C:\Users\Syaoran\Desktop\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInv
 C:\Users\Syaoran\Desktop\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.csproj.GenerateResource.Cache
 C:\Users\Syaoran\Desktop\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.exe
 C:\Users\Syaoran\Desktop\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.pdb
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\bin\Debug\CustomerInvoices.exe.config
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.exe
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.pdb
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\bin\Debug\CustomerInvoices.exe
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\bin\Debug\CustomerInvoices.pdb
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.csprojResolveAssemblyReference.cache
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.Form1.resources
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.Properties.Resources.resources
+C:\Users\jjguillen\Downloads\CustomerInvoices\CustomerInvoices\CustomerInvoices\obj\Debug\CustomerInvoices.csproj.GenerateResource.Cache
