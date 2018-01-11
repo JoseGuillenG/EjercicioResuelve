@@ -8,18 +8,36 @@ using System.Threading.Tasks;
 
 namespace CustomerInvoicesUtils.Web
 {
+    /// <summary>
+    /// Clase para ejecutar llamadas http
+    /// </summary>
     public class WebUtils
     {
+        /// <summary>
+        /// End point a conectarse
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// Listado de parámetros
+        /// </summary>
         public Dictionary<string,string> Params { get; set; }
 
+        /// <summary>
+        /// Constructor para la clase webutils
+        /// </summary>
+        /// <param name="url">Endpoint a conectar</param>
+        /// <param name="paramList">Listado de parámetros</param>
         public WebUtils(string url, Dictionary<string, string> paramList)
         {
             this.Url = url;
             this.Params = paramList;
         }
 
+        /// <summary>
+        /// Método para ejecutar un reqest get
+        /// </summary>
+        /// <returns>Response de tipo string</returns>
         public string GetHttpRequest()
         {
             WebClient client = new WebClient();
@@ -33,6 +51,10 @@ namespace CustomerInvoicesUtils.Web
             return s;
         }
 
+        /// <summary>
+        /// Genera el endpoint de tipo get con parámetros, listo para ser enviado
+        /// </summary>
+        /// <returns>Endpoint completo</returns>
         private string GetUrlToSend()
         {
             var prms = string.Join("&", this.Params.Select(x => string.Format("{0}={1}", x.Key, x.Value)));

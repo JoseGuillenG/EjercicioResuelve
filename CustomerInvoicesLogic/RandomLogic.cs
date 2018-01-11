@@ -5,8 +5,16 @@ using System;
 
 namespace CustomerInvoicesLogic
 {
+    /// <summary>
+    /// Clase que contiene lógica para buscar facturas
+    /// </summary>
     public class RandomLogic : IIvoicingCountLogic
     {
+        /// <summary>
+        /// Método que contiene el algortmo de búsqueda por la mitad, divide de forma random la búsqueda si esta arrojó más de 100 resultadoos
+        /// </summary>
+        /// <param name="request">Objeto request que contiene la información del cliente y fechas de búsqueda</param>
+        /// <returns>Objeto response con la información del número de facturas y el número de peticiones</returns>
         public InvoiceCountResponse GetCustomerInvoicesCount(InvoiceCountRequest request)
         {
             var invoicesCount = 0;

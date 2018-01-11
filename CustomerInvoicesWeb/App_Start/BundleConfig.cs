@@ -3,9 +3,15 @@ using System.Web.Optimization;
 
 namespace CustomerInvoicesWeb
 {
+    /// <summary>
+    /// Clase de bundles, encargada de generar los min de los archivos css y js
+    /// </summary>
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
+        /// <summary>
+        /// Método que registra todos los bundles
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(

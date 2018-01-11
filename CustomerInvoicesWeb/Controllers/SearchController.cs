@@ -12,8 +12,18 @@ using System.Web.Script.Serialization;
 
 namespace CustomerInvoicesWeb.Controllers
 {
+    /// <summary>
+    /// Controlador de búsqueda, encargado de realizar las búsquedas dependiendo del algoritmo que se ejecute
+    /// </summary>
     public class SearchController : Controller
     {
+        /// <summary>
+        /// Método de búsqueda por día
+        /// </summary>
+        /// <param name="customerId">Id del usuario</param>
+        /// <param name="startDate">Fecha de inicio</param>
+        /// <param name="endDate">Fecha de fin</param>
+        /// <returns>Objeto del tipo Json</returns>
         public JsonResult normalSearch(string customerId, string startDate, string endDate)
         {
             var sDate = DateTime.MinValue;
@@ -32,6 +42,13 @@ namespace CustomerInvoicesWeb.Controllers
             }
         }
 
+        /// <summary>
+        /// Método de búsqueda por divición a la mitad
+        /// </summary>
+        /// <param name="customerId">Id del usuario</param>
+        /// <param name="startDate">Fecha de inicio</param>
+        /// <param name="endDate">Fecha de fin</param>
+        /// <returns>Objeto del tipo Json</returns>
         public JsonResult halfSearch(string customerId, string startDate, string endDate)
         {
             var sDate = DateTime.MinValue;
@@ -50,6 +67,13 @@ namespace CustomerInvoicesWeb.Controllers
             }
         }
 
+        /// <summary>
+        /// Método de búsqueda por divición rándom
+        /// </summary>
+        /// <param name="customerId">Id del usuario</param>
+        /// <param name="startDate">Fecha de inicio</param>
+        /// <param name="endDate">Fecha de fin</param>
+        /// <returns>Objeto del tipo Json</returns>
         public JsonResult randomSearch(string customerId, string startDate, string endDate)
         {
             var sDate = DateTime.MinValue;

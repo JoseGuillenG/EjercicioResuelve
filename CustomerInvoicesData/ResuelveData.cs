@@ -10,10 +10,21 @@ using System.Threading.Tasks;
 
 namespace CustomerInvoicesData
 {
+    /// <summary>
+    /// Clase de transferencia de datos
+    /// </summary>
     public class ResuelveData
     {
+        /// <summary>
+        /// Endpoint para realizar request
+        /// </summary>
         private string url = CommonUtils.GetAppSetting("ResuelveUrl");
 
+        /// <summary>
+        /// Método para obtener la cantidad de facturas de un cliente en un rango de fechas
+        /// </summary>
+        /// <param name="request">Objeto request con los parámetros necesarios</param>
+        /// <returns>Respuesta de la llamada en formato string</returns>
         public string GetCustomerInvoicesCount(InvoiceCountRequest request)
         {
             var result = string.Empty;
