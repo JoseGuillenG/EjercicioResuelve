@@ -6,9 +6,12 @@
 <div class="jumbotron row">
     <h2>Ejercicio resuelve</h2>
     <div class="col-md-6">
-        <p>Id del cliente <input name="customerId" id="customerId" type="text" /></p>
-        <p>Fecha de inicio <input class="datepicker" name="startDate" id="startDate" type="text" /></p>
-        <p>Fecha de fin <input class="datepicker" name="endDate" id="endDate" type="text" /></p>
+        <form id="dataToValidate">
+            <p>Id del cliente <input name="customerId" id="customerId" type="text" required /></p>
+            <p>Fecha de inicio <input class="datepicker" name="startDate" id="startDate" type="text" required /></p>
+            <p>Fecha de fin <input class="datepicker" name="endDate" id="endDate" type="text" required /></p>
+            <input id="submitButton" type="submit" hidden/>
+        </form>
     </div>
     <div class="col-md-6">
         <p>Número de facturas <input name="customerInvoices" id="customerInvoices" type="text" /></p>
@@ -30,7 +33,7 @@
     <div class="col-md-4">
         <h2>Algoritmo 2</h2>
         <p>Este algoritmo divide de forma recursiva en rangos aleatorios si el rango de fechas rebasa las 100 facturas</p>
-        <p><a class="btn btn-default" id="randomSearch" href="#">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" id="randomSearch" href="#">Buscar &raquo;</a></p>
     </div>
 </div>
 
@@ -41,9 +44,10 @@
 @section scripts
 {
     <script type="text/javascript">
-        $(window).ready(function () {
-            $('.datepicker').datepicker();
-        })
+        $('.datepicker').datepicker({
+            dateFormat: 'yy-mm-dd',
+            defaultDate: '2017-01-01'
+        });
 
         $('#normalSearch').click(function (e) {
             sendRequest('@Url.Action("normalSearch", "Search")')
@@ -62,25 +66,30 @@
             var startDate = $('#startDate').val();
             var endDate = $('#endDate').val();
 
-            $.ajax({
-                url: url,
-                type: 'GET',
-                data: { customerId: customerId, startDate: startDate, endDate: endDate },
-                contentType: 'application/json; charset=utf-8',
-                beforeSend: function () {
-                    $('#loader-wrapper').show();
-                },
-                success: function (response) {
-                    $('#customerInvoices').val(response.CustomerInvoices);
-                    $('#totalCalls').val(response.Calls);
-                },
-                error: function () {
-                    alert("error");
-                },
-                complete: function () {
-                    $('#loader-wrapper').hide();
-                }
-            });
+            if (!$('#dataToValidate')[0].checkValidity()) {
+                $('#submitButton').click();
+            }
+            else {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data: { customerId: customerId, startDate: startDate, endDate: endDate },
+                    contentType: 'application/json; charset=utf-8',
+                    beforeSend: function () {
+                        $('#loader-wrapper').show();
+                    },
+                    success: function (response) {
+                        $('#customerInvoices').val(response.CustomerInvoices);
+                        $('#totalCalls').val(response.Calls);
+                    },
+                    error: function () {
+                        alert("error");
+                    },
+                    complete: function () {
+                        $('#loader-wrapper').hide();
+                    }
+                });
+            }
         }
     </script>
 }

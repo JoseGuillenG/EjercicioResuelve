@@ -34,7 +34,7 @@ namespace CustomerInvoicesLogic
                 var resultLeft = GetCustomerInvoicesCount(requestLeft);
                 var resultRigth = GetCustomerInvoicesCount(requestRight);
 
-                result.AddInvoicesAndCalls(resultLeft.CustomerInvoices, resultLeft.Calls);
+                result.AddInvoicesAndCalls(resultLeft.CustomerInvoices, resultLeft.Calls + 1);
                 result.AddInvoicesAndCalls(resultRigth.CustomerInvoices, resultRigth.Calls);
 
                 return result;
