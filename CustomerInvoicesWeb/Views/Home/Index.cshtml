@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/main.css" rel="stylesheet" />
+
+<div class="jumbotron row">
+    <h2>Ejercicio resuelve</h2>
+    <div class="col-md-6">
+        <p>Id del cliente <input name="customerId" id="customerId" type="text" /></p>
+        <p>Fecha de inicio <input class="datepicker" name="startDate" id="startDate" type="text" /></p>
+        <p>Fecha de fin <input class="datepicker" name="endDate" id="endDate" type="text" /></p>
+    </div>
+    <div class="col-md-6">
+        <p>Número de facturas <input name="customerInvoices" id="customerInvoices" type="text" /></p>
+        <p>Número de llamadas <input name="totalCalls" id="totalCalls" type="text" /></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Búsqueda sin optimizar</h2>
+        <p>Este algoritmo ejecuta una llamada por cada día en el rango de fechas</p>
+        <p><a class="btn btn-default" id="normalSearch" href="#">Buscar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Algoritmo 1</h2>
+        <p>Este algoritmo divide de forma recursiva a la mitad el rango de fechas mayores de 100 facturas</p>
+        <p><a class="btn btn-default" id="halfSearch" href="#">Buscar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Algoritmo 2</h2>
+        <p>Este algoritmo divide de forma recursiva en rangos aleatorios si el rango de fechas rebasa las 100 facturas</p>
+        <p><a class="btn btn-default" id="randomSearch" href="#">Learn more &raquo;</a></p>
+    </div>
+</div>
+
+<div id="loader-wrapper" hidden>
+    <div id="loader"></div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(window).ready(function () {
+            $('.datepicker').datepicker();
+        })
+
+        $('#normalSearch').click(function (e) {
+            sendRequest('@Url.Action("normalSearch", "Search")')
+        })
+
+        $('#halfSearch').click(function (e) {
+            sendRequest('@Url.Action("halfSearch", "Search")')
+        })
+
+        $('#randomSearch').click(function (e) {
+            sendRequest('@Url.Action("randomSearch", "Search")')
+        })
+
+        function sendRequest(url) {
+            var customerId = $('#customerId').val();
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: { customerId: customerId, startDate: startDate, endDate: endDate },
+                contentType: 'application/json; charset=utf-8',
+                beforeSend: function () {
+                    $('#loader-wrapper').show();
+                },
+                success: function (response) {
+                    $('#customerInvoices').val(response.CustomerInvoices);
+                    $('#totalCalls').val(response.Calls);
+                },
+                error: function () {
+                    alert("error");
+                },
+                complete: function () {
+                    $('#loader-wrapper').hide();
+                }
+            });
+        }
+    </script>
+}

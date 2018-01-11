@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CustomerInvoicesLogic</RootNamespace>
     <AssemblyName>CustomerInvoicesLogic</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,8 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HalfLogic.cs" />
+    <Compile Include="IIvoicingCountLogic.cs" />
     <Compile Include="PerDayLogic.cs" />
-    <Compile Include="PivotLogic.cs" />
+    <Compile Include="RandomLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

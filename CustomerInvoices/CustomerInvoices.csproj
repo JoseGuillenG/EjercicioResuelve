@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,7 +81,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerInvoicesLogic\CustomerInvoicesLogic.csproj">
+      <Project>{6b102ed6-d6e2-47dd-9d02-62824759c63e}</Project>
+      <Name>CustomerInvoicesLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomerInvoicesModels\CustomerInvoicesModels.csproj">
+      <Project>{152e3a02-c978-4724-8b73-94a6d656c6cc}</Project>
+      <Name>CustomerInvoicesModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomerInvoicesUtils\CustomerInvoicesUtils.csproj">
+      <Project>{d48aca4a-7680-4d27-92ba-46760f7c5c39}</Project>
+      <Name>CustomerInvoicesUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

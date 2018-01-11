@@ -19,8 +19,8 @@ namespace CustomerInvoicesData
             var result = string.Empty;
             var prms = new Dictionary<string, string>();
             prms.Add("id", request.CustomerId);
-            prms.Add("start", request.StartDate.ToString("YYYY-MM-DD"));
-            prms.Add("finish", request.EndDate.ToString("YYYY-MM-DD"));
+            prms.Add("start", request.StartDate.ToString("yyyy-MM-dd"));
+            prms.Add("finish", request.EndDate.ToString("yyyy-MM-dd"));
 
             var response = new WebUtils(url, prms).GetHttpRequest();
             return response;

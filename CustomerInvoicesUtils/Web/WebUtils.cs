@@ -35,7 +35,7 @@ namespace CustomerInvoicesUtils.Web
 
         private string GetUrlToSend()
         {
-            var prms = string.Join("&", this.Params);
+            var prms = string.Join("&", this.Params.Select(x => string.Format("{0}={1}", x.Key, x.Value)));
             var result = Url + prms;
             return result;
         }
